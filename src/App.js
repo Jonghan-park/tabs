@@ -32,10 +32,26 @@ function App() {
   return (
     <section className="section">
       <div className="title">
-        <h2>Experience</h2>
+        <h2>News</h2>
         <div className="underline"></div>
       </div>
       <div className="jobs-center">
+        <div className="btn-container">
+          {jobs.articles.map((job, index) => {
+            return (
+              <button
+                key={index}
+                onClick={() => {
+                  setValue(index);
+                }}
+                className={`job-btn ${index === value}`}
+              >
+                {job.source.name}
+              </button>
+            );
+          })}
+        </div>
+
         <article className="job-info">
           <h3>{title}</h3>
           <h4>{publishedAt}</h4>
